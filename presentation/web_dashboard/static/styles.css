@@ -1,0 +1,259 @@
+:root {
+    --bg-color: #f8f9fa; /* Light mode Zoom inspired */
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --border-color: #e2e8f0;
+    --accent: #ff5722; /* Zoom Orange */
+    --accent-secondary: #572d91; /* Zoom Purple */
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --trend-up: #ef4444; 
+    --trend-down: #22c55e;
+    --trend-neutral: #94a3b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Light Glassmorphism Blobs */
+.blob {
+    position: absolute;
+    filter: blur(80px);
+    z-index: -1;
+    border-radius: 50%;
+    animation: float 20s infinite alternate;
+}
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 87, 34, 0.1); /* Laranja sutil */
+    top: -100px;
+    left: -100px;
+}
+.blob-2 {
+    width: 500px;
+    height: 500px;
+    background: rgba(87, 45, 145, 0.1); /* Roxo sutil */
+    bottom: -200px;
+    right: -100px;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 100px) scale(1.2); }
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.branding h1 {
+    font-weight: 800;
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+    color: var(--accent-secondary);
+}
+
+.branding span {
+    color: var(--accent); /* Preços em Laranja */
+}
+
+.branding p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 0.2rem;
+    font-weight: 400;
+}
+
+.stats-bar {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.search-container {
+    margin-bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#searchInput {
+    width: 100%;
+    max-width: 600px;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    font-family: inherit;
+}
+
+#searchInput:focus {
+    border-color: var(--accent-secondary);
+    box-shadow: 0 4px 20px rgba(87, 45, 145, 0.15);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(87, 45, 145, 0.2);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+.card-header {
+    margin-bottom: 1.5rem;
+}
+
+.header-wrapper {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+.product-image {
+    width: 100%;
+    height: 180px; /* Aumentado consideravelmente para catálogo Zoom! */
+    object-fit: contain; /* Para não distorcer fotos do console que podem vir deitadas */
+    border-radius: 8px;
+    background: transparent;
+    padding: 2px;
+}
+
+.variant-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.current-price {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--accent-secondary); /* Valores em roxo premium Zoom */
+}
+
+.trend-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: #f1f5f9;
+}
+
+.trend-up { color: var(--trend-up); background: #fef2f2; }
+.trend-down { color: var(--trend-down); background: #f0fdf4; }
+.trend-neutral { color: var(--trend-neutral); background: #f8fafc; }
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.metric-item {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 0.8rem;
+    border: 1px solid #f1f5f9;
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.3rem;
+}
+
+.metric-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.chart-container {
+    height: 110px;
+    width: 100%;
+    margin-top: auto;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+/* Buy Action Button - Estilo Zoom Laranja */
+.buy-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--accent);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.85rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background 0.2s;
+    margin-top: 5px;
+}
+
+.buy-button:hover {
+    background: #e64a19;
+}

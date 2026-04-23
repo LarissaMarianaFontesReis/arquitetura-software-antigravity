@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity Tracker | Analytics</title>
+    <!-- Modern Corporative Tipography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    
+    <div class="container">
+        <header>
+            <div class="branding">
+                <!-- Branding Zoom Style -->
+                <h1>Controlador de <span>Preços</span></h1>
+                <p>Consulte históricos e compre no menor valor</p>
+            </div>
+            <div class="stats-bar" id="global-stats">
+                Carregando Conexões Hexagonais...
+            </div>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="🔍 Pesquisar produtos..." autocomplete="off">
+        </div>
+
+        <main id="dashboard-grid" class="grid">
+            <!-- Os cards de Hardware serao renderizados dinamicamente pelo JS -->
+        </main>
+    </div>
+
+    <!-- Chart.js para desenhar micrograficos lindos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
